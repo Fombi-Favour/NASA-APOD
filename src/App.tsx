@@ -14,6 +14,14 @@ const App: React.FC = () => {
     dispatch(fetchGallery());
   }, [dispatch]);
 
+  // implementing searching using date format
+  const handleDateChange = (date: Date | null) => {
+    if (date) {
+      const formattedDate = date.toISOString().split('T')[0];
+      dispatch(fetchGallery(formattedDate));
+    }
+  };
+
   if(isLoading) {
     return <div className='flex items-center justify-center h-screen'>
       <div className='w-16 h-16 mr-2 border-8 rounded-full border-t-blue-700 animate-spin' />
@@ -28,8 +36,12 @@ const App: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-4">NASA Astronomy Picture of the day</h1>
-      <div className="mb-4">
+      <div className="mb-4 flex items-center gap-2">
+        <h3 className="text-slate-600 font-medium">Search for specific dates</h3>
         <DatePicker
+          selected={data ? new Date(data.date) : new Date()}
+          onChange={handleDateChange}
+          className="border p-2 rounded-md"
         />
       </div>
       {data && (
