@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api_key = process.env.API_KEY;
+const api_key = process.env.REACT_APP_API_KEY;
 const url = 'https://api.nasa.gov/planetary/apod';
 
 export const fetchGalleryData = async (date?: string) => {
