@@ -25,7 +25,7 @@ const App: React.FC = () => {
   if(isLoading) {
     return <div className='flex items-center justify-center h-screen'>
       <div className='w-16 h-16 mr-2 border-8 rounded-full border-t-blue-700 animate-spin' />
-      <h1 className='text-3xl font-semibold tracking-wider'>Loading!!!</h1>
+      <h1 className='text-3xl font-semibold tracking-wider'>Loading...</h1>
     </div>
   }
 
