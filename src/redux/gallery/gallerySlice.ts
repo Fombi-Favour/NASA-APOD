@@ -1,17 +1,10 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { fetchGalleryData } from '../../services/api';
+import { fetchGalleryData, GalleryData } from '../../services/api';
 
 interface GalleryState {
   data: GalleryData | null;
   isLoading: boolean;
   error: string | null;
-}
-
-interface GalleryData {
-  url: string;
-  title: string;
-  explanation: string;
-  date: string;
 }
 
 const initialState: GalleryState = {
