@@ -9,6 +9,10 @@ export interface GalleryData {
 }
 
 export const fetchGalleryData = async (date?: string): Promise<GalleryData> => {
+  if (!apiKey) {
+    throw new Error('API key is not set');
+  }
+  
   const fetch_url = new URL(urlData);
   fetch_url.searchParams.append('api_key', apiKey);
   if (date) {
